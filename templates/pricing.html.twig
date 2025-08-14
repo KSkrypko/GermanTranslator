@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Cennik{% endblock %}
+{% block body %}
+<h1 class="h3 mb-3">Cennik</h1>
+<table class="table table-striped align-middle">
+  <thead><tr><th>Usługa</th><th>Cena</th><th>Jednostka</th></tr></thead>
+  <tbody>
+  {% for i in items %}
+    <tr><td>{{ i.serviceName }}</td><td>{{ i.price }} PLN</td><td>{{ i.unit }}</td></tr>
+  {% else %}
+    <tr><td colspan="3" class="text-muted">Wkrótce dostępne</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

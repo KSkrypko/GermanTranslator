@@ -1,0 +1,25 @@
+# Symfony cache, logs & other generated files
+/var/
+/vendor/
+/public/bundles/
+/node_modules/
+/public/build/
+
+# Environment files
+.env.local
+.env.local.php
+.env.*.local
+/.env
+
+# IDE / Editor specific
+/.idea/
+/.vscode/
+*.swp
+*.swo
+
+# PHPUnit cache
+.phpunit.result.cache
+
+# OS generated files
+.DS_Store
+Thumbs.db

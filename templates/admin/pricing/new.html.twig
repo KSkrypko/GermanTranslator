@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nowa pozycja – Cennik{% endblock %}
+
+{% block body %}
+<div class="container py-4">
+  <h4 class="fw-bold mb-4">Nowa pozycja</h4>
+  {% include 'admin/pricing/form.html.twig' with { form: form } %}
+</div>
+{% endblock %}

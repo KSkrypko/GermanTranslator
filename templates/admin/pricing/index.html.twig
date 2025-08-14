@@ -1,0 +1,43 @@
+{# templates/admin/pricing/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Cennik – Admin{% endblock %}
+
+{% block body %}
+<h1 class="h3 mb-3">Cennik</h1>
+
+{% for m in app.flashes('success') %}
+  <div class="alert alert-success">{{ m }}</div>
+{% endfor %}
+
+<a class="btn btn-primary btn-sm mb-3" href="{{ path('admin_pricing_new') }}">Dodaj pozycję</a>
+
+<table class="table table-sm align-middle">
+  <thead>
+    <tr>
+      <th>Usługa</th>
+      <th>Cena</th>
+      <th>Jednostka</th>
+      <th class="text-end">Akcje</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in items %}
+    <tr>
+      <td>{{ i.serviceName }}</td>
+      <td>{{ i.price }} PLN</td>
+      <td>{{ i.unit }}</td>
+      <td class="text-end">
+        <a class="btn btn-outline-secondary btn-sm" href="{{ path('admin_pricing_edit', { id: i.id }) }}">Edytuj</a>
+        <form method="post" action="{{ path('admin_pricing_delete', { id: i.id }) }}" class="d-inline">
+          <input type="hidden" name="_token" value="{{ csrf_token('del' ~ i.id) }}">
+          <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Usunąć?')">Usuń</button>
+        </form>
+      </td>
+    </tr>
+  {% else %}
+    <tr><td colspan="4" class="text-muted">Brak pozycji</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

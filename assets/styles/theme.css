@@ -1,0 +1,51 @@
+:root{
+  --bg:#ffffff;
+  --bg-muted:#f6f8fa;
+  --panel:#ffffff;
+  --border:#d0d7de;
+  --text:#24292f;
+  --muted:#57606a;
+  --accent:#2da44e;
+  --accent-hover:#2c974b;
+  --danger:#cf222e;
+}
+
+html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+
+a{color:var(--text);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1100px}
+
+.navbar{background:#fff!important;border-bottom:1px solid var(--border)}
+.navbar .navbar-brand{font-weight:700;color:var(--text)!important}
+.navbar .nav-link{color:var(--text)!important;opacity:.85}
+.navbar .nav-link:hover{opacity:1}
+.navbar .btn-outline-light{color:var(--text)!important;background:#fff;border-color:var(--border)}
+.navbar .btn-outline-light:hover{background:var(--bg-muted)}
+
+.card,.tile,.p-4.bg-light,.rounded-3{background:var(--panel);border:1px solid var(--border)!important;box-shadow:none!important;border-radius:8px}
+
+.btn{border-radius:6px;border:1px solid var(--border)}
+.btn-primary{color:#fff;background:var(--accent);border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-danger{color:#fff;background:var(--danger);border-color:var(--danger)}
+
+.form{max-width:600px;margin:0 auto;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;color:var(--muted);margin-bottom:6px}
+.form-control{width:100%;background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:1rem;line-height:1.4}
+.form-control:focus{border-color:var(--text);outline:none;box-shadow:none}
+textarea.form-control{min-height:160px;resize:vertical}
+.btn-submit{display:inline-block;background:var(--accent);border:none;color:#fff;font-weight:600;border-radius:6px;padding:10px 20px;cursor:pointer;transition:background .2s}
+.btn-submit:hover{background:var(--accent-hover)}
+
+.contact-data{max-width:600px;margin:24px auto 0;background:var(--bg-muted);border:1px solid var(--border);border-radius:8px;padding:16px 20px}
+.contact-data p{margin:0 0 .4rem 0}
+.contact-data strong{color:var(--text)}
+
+.table{border-color:var(--border)}
+.table thead th{background:var(--bg-muted);border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.table td,.table th{border-color:var(--border)!important}
+
+footer{background:#fff;border-top:1px solid var(--border);color:var(--muted)}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}Kontakt i wycena{% endblock %}
+
+{% block body %}
+<h1>Kontakt</h1>
+<p class="mb-4">Opisz krótko dokument, dołącz plik w wiadomości (lub prześlij e-mailem). Odpowiem z wyceną i terminem.</p>
+
+{% for message in app.flashes('success') %}
+  <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+{{ form_start(form, { attr: { class: 'form' } }) }}
+  <div class="form-group mb-3">
+    {{ form_label(form.name, 'Imię i nazwisko') }}
+    {{ form_widget(form.name, { attr: { class: 'form-control' } }) }}
+    {{ form_errors(form.name) }}
+  </div>
+
+  <div class="form-group mb-3">
+    {{ form_label(form.email, 'E-mail') }}
+    {{ form_widget(form.email, { attr: { class: 'form-control' } }) }}
+    {{ form_errors(form.email) }}
+  </div>
+
+  <div class="form-group mb-3">
+    {{ form_label(form.phone, 'Telefon') }}
+    {{ form_widget(form.phone, { attr: { class: 'form-control' } }) }}
+    {{ form_errors(form.phone) }}
+  </div>
+
+  <div class="form-group mb-3">
+    {{ form_label(form.message, 'Wiadomość') }}
+    {{ form_widget(form.message, { attr: { class: 'form-control', rows: 5 } }) }}
+    {{ form_errors(form.message) }}
+  </div>
+
+  {{ form_row(form.send, { attr: { class: 'btn btn-primary' } }) }}
+  {{ form_row(form._token) }}
+{{ form_end(form, { render_rest: false }) }}
+
+<div class="contact-data mt-4">
+  <p><strong>E-mail:</strong> twoj.email@example.com</p>
+  <p><strong>Tel.:</strong> +48 000 000 000</p>
+  <p class="mb-0"><strong>Adres biura:</strong> ul. Przykładowa 1, Katowice</p>
+</div>
+{% endblock %}
