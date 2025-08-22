@@ -1,0 +1,21 @@
+{# templates/admin/contact/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Kontakty</h1>
+
+    {% if messages is defined and messages|length %}
+        <ul>
+            {% for msg in messages %}
+                <li>
+                    <strong>{{ msg.name ?? msg.email ?? 'Nadawca' }}</strong>
+                    – {{ msg.subject ?? 'Bez tematu' }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak wiadomości do wyświetlenia.</p>
+    {% endif %}
+
+    <p><a href="{{ path('admin_home') }}">← Wróć do panelu</a></p>
+{% endblock %}

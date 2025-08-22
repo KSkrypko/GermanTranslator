@@ -1,29 +1,23 @@
+{# templates/security/login.html.twig #}
 {% extends 'base.html.twig' %}
-
 {% block title %}Logowanie{% endblock %}
 
 {% block body %}
-<div class="container mt-5 d-flex justify-content-center">
-    <form method="post" action="{{ path('login') }}" class="w-100" style="max-width:420px">
-        {% if error %}
-            <div class="alert alert-danger">
-                {{ error.messageKey|trans(error.messageData, 'security') }}
-            </div>
-        {% endif %}
+  {% if error %}
+    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+  {% endif %}
 
-        <h1 class="h3 mb-3 fw-normal text-center">Zaloguj się</h1>
+  <h1 class="mb-4">Zaloguj się</h1>
 
-        <div class="mb-3">
-            <label class="form-label">E-mail</label>
-            <input class="form-control" type="text" name="_username" value="{{ last_username }}" required autofocus>
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Hasło</label>
-            <input class="form-control" type="password" name="_password" required>
-        </div>
-
-        <button class="btn btn-primary w-100" type="submit">Zaloguj</button>
-    </form>
-</div>
+  <form method="post" action="{{ path('login') }}" style="max-width:520px">
+    <div class="mb-3">
+      <label class="form-label">E-mail</label>
+      <input class="form-control" type="text" name="_username" value="{{ last_username }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Hasło</label>
+      <input class="form-control" type="password" name="_password">
+    </div>
+    <button class="btn btn-primary">Zaloguj</button>
+  </form>
 {% endblock %}

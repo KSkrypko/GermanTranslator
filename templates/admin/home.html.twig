@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Witaj w panelu administratora</h1>
+    <ul>
+        <li><a href="{{ path('admin_pricing_index') }}">Cennik</a></li>
+        <li><a href="{{ path('admin_messages_index') }}">Kontakty</a></li>
+    </ul>
+{% endblock %}
