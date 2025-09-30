@@ -21,7 +21,25 @@ A Symfony-based web application for managing translation services, pricing, and 
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/KSkrypko/GermanTranslator.git
-   cd GermanTranslator
+# 1) Clone the repository
+git clone https://github.com/USER/GermanTranslator.git
+cd GermanTranslator
+
+# 2) Install dependencies
+composer install
+
+# 3) Copy and edit environment variables
+cp .env.local.example .env.local
+# edit APP_SECRET, DATABASE_URL, MAILER_DSN
+
+# 4) Create database & run migrations
+php bin/console doctrine:database:create --if-not-exists
+php bin/console doctrine:migrations:migrate -n
+
+# (optional) Load fixtures
+php bin/console doctrine:fixtures:load -n
+
+# 5) Start dev server
+symfony server:start -d
+# or
+php -S localhost:8000 -t public
